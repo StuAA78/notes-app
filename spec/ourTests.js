@@ -2,10 +2,13 @@
 
 test = new Test()
 test.describe("A note can be created with text")
+
 testNote = new Note()
 testNote.write("The quick brown fox")
+
 test.expect(testNote.getText())
 test.toEqual("The quick brown fox")
+
 console.log(test.getDescription())
 console.log(test.getResult())
 
