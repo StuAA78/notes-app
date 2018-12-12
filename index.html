@@ -5,6 +5,17 @@
     <script src="lib/notebook.js"></script>
     <script src="lib/interface.js"></script>
     <script src="lib/testFramework.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function(event) {
+        notebook = new Notebook()
+        notebookUrlListener();
+        notebook.addNote("test hello");
+        notebook.addNote("second test");
+        notebook.addNote("sup");
+        notebook.addNote("Thinking of things to things to write is pretty difficult");
+        updateNotes();
+      });
+    </script>
     <meta charset="utf-8">
     <title></title>
   </head>
@@ -14,16 +25,6 @@
     <div id="notebook">
       <div id="notes">
       </div>
-
-      <script>
-        notebook = new Notebook()
-        notebookUrlListener();
-        notebook.addNote("test hello");
-        notebook.addNote("second test");
-        notebook.addNote("sup");
-        notebook.addNote("Thinking of things to things to write is pretty difficult");
-        updateNotes();
-      </script>
 
       <form onsubmit="event.preventDefault(); notebook.addNote(text.value); updateNotes();">
         <br>
