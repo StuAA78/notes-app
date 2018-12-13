@@ -5,6 +5,7 @@
     <script src="lib/notebook.js"></script>
     <script src="lib/interface.js"></script>
     <script src="lib/testFramework.js"></script>
+    <script src="spec/ourTests.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function(event) {
         notebook = new Notebook()
@@ -14,6 +15,8 @@
         notebook.addNote("sup");
         notebook.addNote("Thinking of things to things to write is pretty difficult");
         updateNotes();
+        hideNote();
+        runTest();
       });
     </script>
     <meta charset="utf-8">
@@ -21,6 +24,11 @@
   </head>
   <body>
     <div id="note">
+      <div id="note_text">
+      </div>
+      <div id="return_button">
+        <a href="#notes" id="notes_link">notes</a>
+      </div>
     </div>
     <div id="notebook">
       <div id="notes">
@@ -29,9 +37,8 @@
       <form onsubmit="event.preventDefault(); notebook.addNote(text.value); updateNotes();">
         <br>
         <textarea id="text" cols="80" rows="20" placeholder="Enter a note"></textarea><br>
-        <input type="submit" value="Create Note"></input>
+        <input type="submit" id="create_note" value="Create Note"></input>
       </form>
     </div>
-    <a href="#notes">notes</a>
   </body>
 </html>

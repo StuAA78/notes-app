@@ -1,5 +1,7 @@
 // notes app tests
 
+function runTest() {
+
 test = new Test()
 test.describe("A note can be created with text")
 
@@ -20,6 +22,19 @@ test.toEqual("The quick brown fox ...")
 console.log(test.getDescription())
 console.log(test.getResult())
 console.log(testNote.getDisplayText())
+
+test.describe("user can create a note via textarea and create button")
+document.getElementById("text").value = "This should write in the text area... \
+hopefully"
+document.getElementById("create_note").click()
+test.expect(document.getElementById("notebook").innerHTML)
+test.toInclude("This should write")
+console.log(test.getDescription())
+console.log(test.getResult())
+
+}
+
+
 
 // test framework tests:
 //
